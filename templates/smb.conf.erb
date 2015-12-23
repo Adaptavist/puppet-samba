@@ -1,0 +1,19 @@
+### File managed with puppet ###
+#### Served by:        '<%= scope.lookupvar('::servername') %>'
+#### Module:           '<%= scope.to_hash['module_name'] %>'
+#### Template source:  '<%= template_source %>'
+
+[global]
+<%- scope.lookupvar('manage_options_global').sort.each do |name, value| -%>
+<%- next if value.to_s == 'undef' -%>
+<%= name %> = <%= value %>
+<%- end -%>
+
+<%- scope.lookupvar('manage_options_sections').sort.each do |section, options| -%>
+<%- next if options.to_s == 'undef' -%>
+[<%= section %>]
+  <%- options.sort.each do |opt_name, opt_value| -%>
+<%- next if opt_value.to_s == 'undef' -%>
+<%= opt_name %> = <%= opt_value %>
+  <%- end -%>
+<%- end %>
