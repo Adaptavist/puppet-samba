@@ -15,8 +15,8 @@
 # Copyright 2014 Adaptavist Ltd, unless otherwise noted
 #
 class samba::adsjoin::kerberos {
-  exec { "net ads join -k":
-    environment => [ "LOGNAME=root" ], # required to use root's kerberos
-    unless      => "net ads testjoin -k",
+  exec { 'net ads join -k':
+    environment => [ 'LOGNAME=root' ], # required to use root's kerberos
+    unless      => 'net ads testjoin -k',
   }
 }

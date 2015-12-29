@@ -16,9 +16,14 @@ class samba::package(
     $package = $samba::params::package,
     ) inherits samba::params {
   
+  $package_ensure = $absent ? {
+    true  => 'absent',
+    false => 'present'
+  }
+
   if $package {
     package { 'samba':
-      ensure => $absent ? { true => 'absent', false => 'present' },
+      ensure => $package_ensure,
       name   => $package,
     }
   }

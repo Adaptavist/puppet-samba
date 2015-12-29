@@ -47,8 +47,8 @@ class samba (
   $audit_only          = false,
   $template            = 'samba/smb.conf.erb',
 ){
-  class { "samba::package": } ->
-  class { "samba::config": } ->
-  class { "samba::service": } ->
-  Class["samba"]
+  class { 'samba::package': } ->
+  class { 'samba::config': } ->
+  class { 'samba::service': } ->
+  Class['samba']
 }

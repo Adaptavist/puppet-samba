@@ -37,15 +37,17 @@ class samba::service(
     },
   }
 
-  service { 'samba':
-    name      => $service,
-    ensure    => $manage_service_ensure,
-    enable    => $manage_service_enable,
-    hasstatus => true,
-    require   => $package ? {
+  $service_require = $package ? {
       ''      => undef,
       default => Package[samba], # from samba::package
-    }
+  }
+
+  service { 'samba':
+    ensure    => $manage_service_ensure,
+    name      => $service,
+    enable    => $manage_service_enable,
+    hasstatus => true,
+    require   => $service_require
   }
 
 }
