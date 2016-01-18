@@ -1,4 +1,5 @@
  # Samba
+[![Build Status](https://travis-ci.org/Adaptavist/puppet-samba.svg?branch=master)](https://travis-ci.org/Adaptavist/puppet-samba)
 
 Install, configure and start Samba.
 

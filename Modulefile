@@ -1,5 +1,5 @@
 name 'adaptavist-samba'
-version '0.1.4'
+version '0.1.5'
 author 'Evgeny Zislis <ezislis@adaptavist.com>'
 summary 'Install and configure samba' 
 license 'Apache2'
